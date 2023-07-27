@@ -28,7 +28,7 @@ const Search = () => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`http://localhost:8800/api/videos/search${query}`, {access_token:ref.cookie});
+      const res = await axios.get(`https://video-streaming-client.vercel.app/api/videos/search${query}`, {access_token:ref.cookie});
       setVideos(res.data);
     };
     fetchVideos();

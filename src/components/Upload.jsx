@@ -184,7 +184,7 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e)=>{
     e.preventDefault();
-    const res = await axios.post("http://localhost:8800/api/videos", {...inputs, tags, access_token:refe.cookie})
+    const res = await axios.post("https://video-streaming-client.vercel.app/api/videos", {...inputs, tags, access_token:refe.cookie})
     setOpen(false)
     res.status===200 && navigate(`/video/${res.data._id}`)
   }

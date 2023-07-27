@@ -143,10 +143,11 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`http://localhost:8800/api/videos/find/${path}`);
+        const videoRes = await axios.get(`https://video-streaming-client.vercel.app/api/videos/find/${path}`);
         const channelRes = await axios.get(
-          `http://localhost:8800/api/users/find/${videoRes.data.userId}`
+          `https://video-streaming-client.vercel.app/api/users/find/${videoRes.data.userId}`
         );
+        console.log(channelRes.data);
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
       } catch (err) {}
@@ -155,18 +156,18 @@ const Video = () => {
   }, [path, dispatch]);
 
   const handleLike = async () => {
-    await axios.put(`http://localhost:8800/api/users/like/${currentVideo._id}`, {access_token:ref.cookie});
+    await axios.put(`https://video-streaming-client.vercel.app/api/users/like/${currentVideo._id}`, {access_token:ref.cookie});
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
-    await axios.put(`http://localhost:8800/api/users/dislike/${currentVideo._id}`, {access_token:ref.cookie});
+    await axios.put(`https://video-streaming-client.vercel.app/api/users/dislike/${currentVideo._id}`, {access_token:ref.cookie});
     dispatch(dislike(currentUser._id));
   };
 
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
-      ? await axios.put(`http://localhost:8800/api/users/unsub/${channel._id}`, {access_token:ref.cookie})
-      : await axios.put(`http://localhost:8800/api/users/sub/${channel._id}`, {access_token:ref.cookie});
+      ? await axios.put(`https://video-streaming-client.vercel.app/api/users/unsub/${channel._id}`, {access_token:ref.cookie})
+      : await axios.put(`https://video-streaming-client.vercel.app/api/users/sub/${channel._id}`, {access_token:ref.cookie});
     dispatch(subscription(channel._id));
   };
 

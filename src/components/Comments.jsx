@@ -63,7 +63,7 @@ const Comments = ({ videoId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/comments/${videoId}`);
+        const res = await axios.get(`https://video-streaming-client.vercel.app/api/comments/${videoId}`);
         setComments(res.data);
       } catch (err) {}
     };
@@ -75,7 +75,7 @@ const Comments = ({ videoId }) => {
     if (newComment.trim() === "") return;
 
     try {
-      const res = await axios.post("http://localhost:8800/api/comments", {
+      const res = await axios.post("https://video-streaming-client.vercel.app/api/comments", {
         userId: currentUser._id,
         videoId,
         content: newComment,

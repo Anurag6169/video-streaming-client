@@ -119,7 +119,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/signin", { name, password });
+      const res = await axios.post("https://video-streaming-client.vercel.app/api/auth/signin", { name, password });
       dispatch(loginSuccess(res.data));
       console.log(res.data);
       localStorage.setItem("access_token", res.data.access_token)
@@ -134,7 +134,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("http://localhost:8800/api/auth/google", {
+          .post("https://video-streaming-client.vercel.app/api/auth/google", {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.photoURL,
@@ -154,7 +154,7 @@ const SignIn = () => {
     <Container>
       <Wrapper>
         <Title>Sign in</Title>
-        <SubTitle>to continue to LamaTube</SubTitle>
+        <SubTitle>to continue to MeTube</SubTitle>
         <Input
           placeholder="username"
           onChange={(e) => setName(e.target.value)}
