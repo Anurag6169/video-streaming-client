@@ -30,7 +30,7 @@ const Home = ({type}) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`https://video-streaming-server-woad.vercel.app//api/videos/${type}`, {access_token:ref.cookie});
+      const res = await axios.get(`https://video-streaming-server-woad.vercel.app/api/videos/${type}`, {access_token:ref.cookie});
       console.log(res.data);
       setVideos(res.data);
     };
