@@ -119,7 +119,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("https://video-streaming-client.vercel.app/api/auth/signin", { name, password });
+      const res = await axios.post("https://video-streaming-server.vercel.app/api/auth/signin", { name, password });
       dispatch(loginSuccess(res.data));
       console.log(res.data);
       localStorage.setItem("access_token", res.data.access_token)
@@ -134,7 +134,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("https://video-streaming-client.vercel.app/api/auth/google", {
+          .post("https://video-streaming-server.vercel.app/api/auth/google", {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.photoURL,

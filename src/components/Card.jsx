@@ -88,7 +88,7 @@ const Card = ({ type, video }) => {
 
   useEffect(() => {
     const fetchChannel = async () => {
-      const res = await axios.get(`https://video-streaming-client.vercel.app/api/users/find/${video.userId}`);
+      const res = await axios.get(`https://video-streaming-server.vercel.app/api/users/find/${video.userId}`);
       setChannel(res.data);
     };
     fetchChannel();
