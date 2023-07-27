@@ -41,7 +41,7 @@ const Comment = ({ comment }) => {
 
   useEffect(() => {
     const fetchComment = async () => {
-      const res = await axios.get(`https://video-streaming-server.vercel.app/api/users/find/${comment.userId}`);
+      const res = await axios.get(`https://video-streaming-server-woad.vercel.app//api/users/find/${comment.userId}`);
       setChannel(res.data)
     };
     fetchComment();
