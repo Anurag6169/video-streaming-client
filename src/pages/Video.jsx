@@ -177,6 +177,7 @@ const Video = () => {
     <Container>
       <Content>
         <VideoWrapper>
+          {console.log(currentvideo.videoUrl)}
           <VideoFrame src={currentVideo.videoUrl} controls />
         </VideoWrapper>
         <Title>{currentVideo.title}</Title>
